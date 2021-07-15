@@ -66,6 +66,13 @@ export class AppComponent {
   }
 
 
+  createAccount() {
+    this.accountService.createAccount().subscribe(data => {
+      console.log(data)
+    }, error => {
+      console.log(error)
+    })
+  }
 
   getAccounts() {
     this.accountService.getAccounts().subscribe(data => {
