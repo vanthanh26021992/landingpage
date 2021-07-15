@@ -13,6 +13,7 @@ import {ButtonModule} from 'primeng/button';
 export class AppComponent {
   title = 'frontend2';
   items: MenuItem[] = [];
+  products: any[] = [];
 
 
   ngOnInit() {
@@ -68,3 +69,5 @@ export class AppComponent {
     })
   }
 }
+
+
