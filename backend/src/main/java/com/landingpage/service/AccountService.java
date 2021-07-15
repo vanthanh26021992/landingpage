@@ -9,53 +9,42 @@ import com.landingpage.entity.Account;
 
 @Service
 public class AccountService {
-
-  public List<Account> getAccount() {
-    List<Account> accounts = new ArrayList<>();
-    accounts.add(new Account("tvthanh", "tvthanh"));
-    accounts.add(new Account("dohieu", "dohieu"));
-    return accounts;
-  }
   
   public List<Account> createAccount(Account account) {
     List<Account> accounts = new ArrayList<>();
+    accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
+    accounts.add(new Account(125, "hieu", "01-01-2000", "0977097097", "hieu@gmail.com", "Hanoi", "Dang ky", "v100"));
     accounts.add(account);
     return accounts;
   }
   
   public List<Account> removeAccount(Account account) {
     List<Account> accounts = new ArrayList<>();
-    accounts.add(new Account("tvthanh", "tvthanh"));
-    accounts.add(new Account("dohieu", "dohieu"));
+    accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
+    accounts.add(new Account(125, "hieu", "01-01-2000", "0977097097", "hieu@gmail.com", "Hanoi", "Dang ky", "v100"));
     for (int i = 0; i < accounts.size(); i++) {
-      if(accounts.get(i).getUsername().equals(account.getUsername())) {
+      if(accounts.get(i).getId() == (account.getId())) {
         accounts.remove(i);
       }
     }
     return accounts;
   }
   
-  public List<Account> changePassword(Account account) {
+  public List<Account> update(Account account) {
     List<Account> accounts = new ArrayList<>();
-    accounts.add(new Account("tvthanh", "tvthanh"));
-    accounts.add(new Account("dohieu", "dohieu"));
+    accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
+    accounts.add(new Account(125, "hieu", "01-01-2000", "0977097097", "hieu@gmail.com", "Hanoi", "Dang ky", "v100"));
     for(Account existedAccount : accounts ) {
-      if(existedAccount.getUsername().equals(account.getUsername())) {
-        existedAccount.setPassword(account.getPassword());
-      }
-    }
-    return accounts;
-  }
-  
-  public String update(Account account) {
-    List<Account> accounts = new ArrayList<>();
-    accounts.add(new Account("tvthanh", "tvthanh"));
-    accounts.add(new Account("dohieu", "dohieu"));
-    for(Account existedAccount : accounts ) {
-      if(existedAccount.getUsername().equals(account.getUsername())) {
-        existedAccount.setPassword(account.getPassword());
+      if(existedAccount.getId() == (account.getId())) {
+        existedAccount.setName(account.getName());
+        existedAccount.setDateofbirth(account.getDateofbirth());
+        existedAccount.setPhonenumber(account.getPhonenumber());
+        existedAccount.setAddress(account.getAddress());
+        existedAccount.setEmail(account.getEmail());
+        existedAccount.setRequest(account.getRequest());
+        existedAccount.setUsingpack(account.getUsingpack());
       }
     } 
-    return "Updation is success";
+    return accounts;
   }
 }

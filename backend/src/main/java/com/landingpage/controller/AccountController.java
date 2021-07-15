@@ -19,28 +19,19 @@ public class AccountController {
   @Autowired
   private AccountService service;
   
-  @GetMapping("search")
-  public List<Account> getAccount() {
-    return service.getAccount();
-  }
   
   @PostMapping("create")
   public List<Account> createAccount(Account account) {
     return service.createAccount(account);
   }
   
-  @PostMapping("delete")
+  @PostMapping("remove")
   public List<Account> removeAccount(Account account) {
     return service.removeAccount(account);
   }
   
-  @PostMapping("change-password")
-  public List<Account> changePassword(Account account) {
-    return service.changePassword(account);
-  }
-  
   @PostMapping("update")
-  public String update(Account account) {
+  public List<Account> update(Account account) {
     return service.update(account);
   }
   
