@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
 import axios from 'axios';
-import {ButtonModule} from 'primeng/button';
+//import { Http, Response } from '@angular/common/http';
+//import 'rxjs/Rx';
+import { HttpClient } from '@angular/common/http';
+import { AccountService } from './service/account.service';
+
 
 
 @Component({
@@ -13,6 +16,9 @@ import {ButtonModule} from 'primeng/button';
 export class AppComponent {
   title = 'frontend2';
   items: MenuItem[] = [];
+  
+
+  constructor(private http: HttpClient, private accountService: AccountService) { }
 
 
   ngOnInit() {
@@ -60,8 +66,8 @@ export class AppComponent {
 
 
 
-  createAccount() {
-    axios.get('localhost:8080/account/search').then(data => {
+  getAccounts() {
+    this.accountService.getAccounts().subscribe(data => {
       console.log(data)
     }, error => {
       console.log(error)
