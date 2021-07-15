@@ -3,6 +3,7 @@ package com.landingpage.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,10 @@ public class AccountController {
   @Autowired
   private AccountService service;
   
+  @GetMapping("search")
+  public List<Account> getAccount() {
+    return service.getAccount();
+  }
   
   @PostMapping("create")
   public List<Account> createAccount(@RequestBody Account account) {

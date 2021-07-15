@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {MenubarModule} from 'primeng/menubar';
+import {TableModule} from 'primeng/table';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -15,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MenubarModule,
+    TableModule,
     HttpClientModule
   ],
   providers: [],

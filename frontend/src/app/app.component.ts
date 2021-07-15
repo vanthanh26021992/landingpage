@@ -16,6 +16,7 @@ import { AccountService } from './service/account.service';
 export class AppComponent {
   title = 'frontend2';
   items: MenuItem[] = [];
+  products: any[] = [];
   
 
   constructor(private http: HttpClient, private accountService: AccountService) { }
@@ -81,3 +82,5 @@ export class AppComponent {
     })
   }
 }
+
+
