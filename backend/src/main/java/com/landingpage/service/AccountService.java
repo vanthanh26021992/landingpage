@@ -9,7 +9,14 @@ import com.landingpage.entity.Account;
 
 @Service
 public class AccountService {
-  
+
+  public List<Account> getAccount() {
+    List<Account> accounts = new ArrayList<>();
+    accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
+    accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
+    return accounts;
+  }
+
   public List<Account> createAccount(Account account) {
     List<Account> accounts = new ArrayList<>();
     accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
@@ -17,7 +24,7 @@ public class AccountService {
     accounts.add(account);
     return accounts;
   }
-  
+
   public List<Account> removeAccount(Account account) {
     List<Account> accounts = new ArrayList<>();
     accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
@@ -29,7 +36,7 @@ public class AccountService {
     }
     return accounts;
   }
-  
+
   public List<Account> update(Account account) {
     List<Account> accounts = new ArrayList<>();
     accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
