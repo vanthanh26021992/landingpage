@@ -1,5 +1,6 @@
 package com.landingpage.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,19 @@ public class AccountController {
     return service.createAccount(account);
   }
   
-  @PostMapping("remove")
-  public List<Account> removeAccount(Account account) {
-    return service.removeAccount(account);
+  @PostMapping("delete")
+  public List<Account> deleteAccount(@RequestBody Account account) {
+    return service.deleteAccount(account);
   }
   
   @PostMapping("update")
-  public List<Account> update(Account account) {
-    return service.update(account);
+  public List<Account> updateAccount(@RequestBody Account account) {
+    return service.updateAccount(account);
+  }
+  
+  @PostMapping("edit")
+  public List<Account> editAccount(@RequestBody Account account) {
+    return service.updateAccount(account);
   }
   
 }
