@@ -42,7 +42,6 @@ public class AccountService {
   public List<Account> editAccount(Account account) {
     List<Account> accounts = new ArrayList<>();
     accounts.add(new Account(123, "tvthanh", "01-01-2000", "0977097097", "thanh@gmail.com", "Hanoi", "Dang ky", "v100"));
-    accounts.add(new Account(125, "hieu", "01-01-2000", "0977097097", "hieu@gmail.com", "Hanoi", "Dang ky", "v100"));
     for(Account existedAccount : accounts ) {
       if(existedAccount.getId() == account.getId()) {
         existedAccount.setName(account.getName());
