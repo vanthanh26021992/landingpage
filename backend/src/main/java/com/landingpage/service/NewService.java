@@ -3,44 +3,35 @@ package com.landingpage.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.landingpage.entity.Account;
 import com.landingpage.entity.News;
+import com.landingpage.repository.NewsRepository;
 @Service
 public class NewService {
   
+  @Autowired
+  private NewsRepository newsRepository;
+  
+  public List<News> getNews() {
+    return (List<News>) newsRepository.findAll();
+  }
+  
   public List<News> creatNews(News news) {
-    List<News> newslist = new ArrayList<>();
-    newslist.add(news);
-    return newslist;
+    newsRepository.save(news);
+    return getNews();
   }
   
   public List<News> editNews(News news) {
-    List<News> newslist = new ArrayList<>();
-    newslist.add(new News(152644895, "hieuuuuu", 1005, 502, 1902, "01-01-1990", "06-02-1995", "Still", "on line"));
-    for (News exitsedNews : newslist) {
-      if(exitsedNews.getId() == news.getId()) {
-        exitsedNews.setTittle(news.getTittle());
-        exitsedNews.setViewnumber(news.getViewnumber());
-        exitsedNews.setLikenumber(news.getLikenumber());
-        exitsedNews.setSharenumber(news.getSharenumber());
-        exitsedNews.setStatus(news.getStatus());
-        exitsedNews.setAction(news.getAction());
-        exitsedNews.setDateofcreat(news.getDateofcreat());
-        exitsedNews.setDateofpost(news.getDateofpost());
-      }
-    }
-    return newslist;
+    newsRepository.save(news);
+    return getNews();
   }
   
   public List<News> deleteNews(News news) {
-    List<News> newslist = new ArrayList<>();
-    newslist.add(new News(152644895, "hieuuuuu", 1005, 502, 1902, "01-01-1990", "06-02-1995", "Still", "on line"));
-    newslist.add(new News(159697654, "hieuuuuu", 1005, 502, 1902, "01-01-1990", "06-02-1995", "Still", "on line"));
-    for (int i = 0; i < newslist.size(); i++) {
-      if(newslist.get(i).getId() == news.getId()) {newslist.remove(i);}
-    }
-    return newslist;
+    newsRepository.deleteById((int) news.getId());
+    return getNews();
   }
 
 }

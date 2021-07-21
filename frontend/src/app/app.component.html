@@ -7,9 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
-
-  <div class="card-container">
+  <!-- <div class="card-container">
 
     <p-table [value]="accounts">
       <ng-template pTemplate="header">
@@ -83,6 +81,78 @@
       <label>Nhập gói cước: </label>
       <input type="text" pInputText [(ngModel)]="account.usingpack"/>
     </div>
-    
-    
+</div>  -->
+
+<div class="card-container">
+
+  <p-table [value]="news">
+    <ng-template pTemplate="header">
+        <tr>
+          <th>STT</th>
+          <th>ID</th>
+          <th>Tên khách hàng</th>
+          <th>Ngày sinh</th>
+          <th>Số điện thoại</th>
+          <th>Email</th>
+          <th>Địa chỉ</th>
+          <th>Loại yêu cầu</th>
+          <th>gói cước SD</th>
+          <th>Hành động</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-news let-index>
+        <tr>
+            <td>{{index}}</td>
+            <td>{{news.id}}</td>
+            <td>{{news.tittle}}</td>
+            <td>{{news.likenumber}}</td>
+            <td>{{news.sharenumber}}</td>
+            <td>{{news.viewnumber}}</td>
+            <td>{{news.dateofcreat}}</td>
+            <td>{{news.dateofpost}}</td>
+            <td>{{news.status}}</td>
+            <td style="text-align:center">
+            <button pButton (click)="editNews(news)">EDIT</button>
+        </tr>
+    </ng-template>
+    <style></style>
+  </p-table>
+  <button pButton (click)="createNews()">ADD</button>
+  <button pButton (click)="updateNews()">UPDATE</button>
+  <button pButton (click)="deleteNews()">DELETE</button>
+  <button pButton (click)="getNews()">Search</button>
+
+  <br />
+  <div>
+    <label>Nhập ID: </label>
+    <input type="number" pInputText [(ngModel)]="news.id"/>
+  </div>
+  <div>
+    <label>Nhập tiêu đề: </label>
+    <input type="text" pInputText [(ngModel)]="news.tittle"/>
+  </div>
+  <div>
+    <label>Nhập số lượt like: </label>
+    <input type="number" pInputText [(ngModel)]="news.likenumber"/>
+  </div>
+  <div>
+    <label>Nhập số lượt share: </label>
+    <input type="number" pInputText [(ngModel)]="news.sharenumber"/>
+  </div>
+  <div>
+    <label>Nhập số lượt xem: </label>
+    <input type="number" pInputText [(ngModel)]="news.viewnumber"/>
+  </div>
+  <div>
+    <label>Nhập ngày viết: </label>
+    <input type="text" pInputText [(ngModel)]="news.dateofcreat"/>
+  </div>
+  <div>
+    <label>Nhập ngày post: </label>
+    <input type="text" pInputText [(ngModel)]="news.dateofpost"/>
+  </div>
+  <div>
+    <label>Nhập trạng thái: </label>
+    <input type="text" pInputText [(ngModel)]="news.status"/>
+  </div>
 </div> 

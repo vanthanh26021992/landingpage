@@ -1,8 +1,16 @@
 package com.landingpage.entity;
 
-public class News {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-  private long id;
+@Entity
+public class News {
+  
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private int id;
   private String tittle;
   private int likenumber;
   private int sharenumber;
@@ -10,12 +18,11 @@ public class News {
   private String dateofcreat;
   private String dateofpost;
   private String status;
-  private String action;
   
   
   public News() {}
-  public News(long id, String tittle, int likenumber, int sharenumber, int viewnumber, String dateofcreat, String dateofpost,
-      String status, String action) {
+  public News(int id, String tittle, int likenumber, int sharenumber, int viewnumber, String dateofcreat, String dateofpost,
+      String status) {
     this.id = id;
     this.tittle = tittle;
     this.likenumber = likenumber;
@@ -24,12 +31,11 @@ public class News {
     this.dateofcreat = dateofcreat;
     this.dateofpost = dateofpost;
     this.status = status;
-    this.action = action;
   }
 
 
-  public long getId() {return id;}
-  public void setId(long id) {this.id = id;}
+  public int getId() {return id;}
+  public void setId(int id) {this.id = id;}
 
 
   public String getTittle() {return tittle;}
@@ -58,9 +64,5 @@ public class News {
 
   public String getStatus() {return status;}
   public void setStatus(String status) {this.status = status;}
-
-
-  public String getAction() {return action;}
-  public void setAction(String action) {this.action = action;}
   
 }
