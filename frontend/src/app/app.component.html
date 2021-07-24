@@ -85,25 +85,23 @@
 
 <div class="card-container">
 
-  <p-table [value]="news">
+  <p-table [value]="newss">
     <ng-template pTemplate="header">
         <tr>
           <th>STT</th>
-          <th>ID</th>
-          <th>Tên khách hàng</th>
-          <th>Ngày sinh</th>
-          <th>Số điện thoại</th>
-          <th>Email</th>
-          <th>Địa chỉ</th>
-          <th>Loại yêu cầu</th>
-          <th>gói cước SD</th>
-          <th>Hành động</th>
+          <th>Tiêu đề</th>
+          <th>Số lượt like</th>
+          <th>Số lượt share</th>
+          <th>Số lượt view</th>
+          <th>Ngày viết</th>
+          <th>Ngày post</th>
+          <th>Trạng thái</th>
+          <th>Sửa</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-news let-index>
         <tr>
             <td>{{index}}</td>
-            <td>{{news.id}}</td>
             <td>{{news.tittle}}</td>
             <td>{{news.likenumber}}</td>
             <td>{{news.sharenumber}}</td>
@@ -123,10 +121,6 @@
   <button pButton (click)="getNews()">Search</button>
 
   <br />
-  <div>
-    <label>Nhập ID: </label>
-    <input type="number" pInputText [(ngModel)]="news.id"/>
-  </div>
   <div>
     <label>Nhập tiêu đề: </label>
     <input type="text" pInputText [(ngModel)]="news.tittle"/>

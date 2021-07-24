@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.landingpage.entity.Account;
+
 import com.landingpage.entity.News;
 import com.landingpage.service.NewService;
+
 
 @RestController
 @RequestMapping("news")
@@ -29,6 +30,7 @@ public class NewsController {
   @PostMapping("create")
   @ResponseBody
   public List<News>creatNews(@RequestBody News news) {
+    System.out.println(news.getDateofcreat());
     return service.creatNews(news);
   }
   

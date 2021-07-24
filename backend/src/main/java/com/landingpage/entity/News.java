@@ -1,12 +1,15 @@
 package com.landingpage.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class News {
+public class News implements Serializable {
+  private static final long serialVersionUID = 1L;
   
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
@@ -21,22 +24,11 @@ public class News {
   
   
   public News() {}
-  public News(int id, String tittle, int likenumber, int sharenumber, int viewnumber, String dateofcreat, String dateofpost,
-      String status) {
-    this.id = id;
-    this.tittle = tittle;
-    this.likenumber = likenumber;
-    this.sharenumber = sharenumber;
-    this.viewnumber = viewnumber;
-    this.dateofcreat = dateofcreat;
-    this.dateofpost = dateofpost;
-    this.status = status;
-  }
+ 
 
 
   public int getId() {return id;}
-  public void setId(int id) {this.id = id;}
-
+  public void setId(String id) {this.tittle = id;}
 
   public String getTittle() {return tittle;}
   public void setTittle(String tittle) {this.tittle = tittle;}
