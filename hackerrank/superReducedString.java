@@ -1,4 +1,5 @@
-import java.lang.invoke.SwitchPoint;
+package hackerrank;
+
 import java.util.ArrayList;
 
 public class superReducedString {
